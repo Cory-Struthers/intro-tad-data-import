@@ -20,11 +20,7 @@ output:
 knitr::opts_knit$set(root.dir = "~/Dropbox/text-as-data-JUST-CORY-AND-AMBER/modules/data/")
 ```
 
-## Lab objectives
-
-* Load text data from different sources
-* Merge metadata with text documents
-* Understand encoding
+### Introduction
 
 Text data come from myriad sources. Organizing and loading the text data is the first step to familiarizing ourselves with the data to analyze. In this module, we will cover some (but not all) of the ways available for organizing text data.
 
@@ -45,11 +41,15 @@ getwd() # view working directory
 
 ```
 
+\
+
+###  Load text data from different sources
+
 Sometimes text data comes to us neatly, where a column in an excel or csv file includes texts and columns in the same data file provide information about each text. In these cases, we can use base R or R packages design to upload traditional types of data, like `readxl`.
 
 Below, we load data we use several times in the course and add a variable `doc_id_keep`, which will come in handy later in the course.
 
-```{r, results = 'hide', message = FALSE}
+```{r, message = FALSE}
 
 # Readxl for xlsx file
 news_data = read_xlsx("sample_news_1995-2017.xlsx") %>%
@@ -67,7 +67,7 @@ bills_data = readRDS("sample_bills.rds") %>%
 
 The `readtext` package is designed to (you guessed it!) *_read text_*. `readtext` can handle character (txt) data in tab- or comma-seperated formats, as well as pdfs and word documents.
  
-```{r, results = 'hide', message = FALSE}
+```{r, message = FALSE}
 
 # pdf
 transcript_pdf = readtext("transcript_Arizona 1.29.2020.pdf")
@@ -86,7 +86,7 @@ More often, we need to read in multiple (sometimes hundreds of) documents from a
 
 If you're having trouble with importing certain characters, or are being thrown an error involving Unicode, you may need to specify which encoding you want R to use in the `readtext` function, `encoding` option. Some encodings either do not import correctly or not available in R, but the problem is usually resolvable. Windows users often need to specify the encoding to prevent errors.
 
-```{r, results = 'hide', message = FALSE}
+```{r, message = FALSE}
 
 # Establish directory to prevent path problems
 dir = "~/Dropbox/text-as-data-JUST-CORY-AND-AMBER/modules/data/transcripts"
@@ -103,13 +103,17 @@ transcripts_all = readtext(paste0(dir, "/*.docx"), text_field = "texts",
 
 # Check it out
 str(transcripts_all)
-View(transcripts_all)
+names(transcripts_all)
 
 ```
 
+\
+
+###  Merge metadata with text documents
+
 The transcript text may not have all variables we need to conduct analysis. We can add a metadata file with additional information to characterize the texts using standard `merge` procedures in R.
 
-```{r, results = 'hide', message = FALSE}
+```{r, message = FALSE}
 
 # Load metadata
 transcript_metadata = read_xlsx("transcripts/Committee_testimony_metadata.xlsx")
@@ -122,14 +126,14 @@ View(transcripts_all)
 ```
 
 \
-
-**Question 1: Review some of the text of the transcripts_all dataframe. What do you notice about the text records? How might the metadata mischaracterize the text records?**
-
+<center>
+**QUESTION 1: Review some of the text in the transcripts_all dataframe. What do you notice about the text records? How might the metadata mischaracterize the text records?**
+</center>
 \
 
 Finally, we'll save our data with the new doc_id column.
 
-```{r, results = 'hide', message = FALSE}
+```{r, message = FALSE}
 
 # Save
 write_xlsx(news_data, "sample_news_1995-2017_docid.xlsx", col_names = TRUE)
@@ -143,9 +147,9 @@ saveRDS(bills_data, "sample_bills_docid.rds")
 ```
 
 \
-
-**Question 2: Create a dataframe using the sample of legislative bills in the 'bills' folder. Upload and attach the metadata in that folder. Save as a csv file.**
-
+<center>
+**QUESTION 2: Create a dataframe using the sample of legislative bills in the 'bills' folder. Upload and attach the metadata in that folder. Save as a csv file.**
+</center>
 \
 
 
