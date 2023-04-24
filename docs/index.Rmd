@@ -125,11 +125,17 @@ head(transcripts_all,10)
 
 ```
 
+
 \
-<center>
+
+---
+
 **QUESTION 1: Review some of the text in the transcripts_all dataframe. What do you notice about the text records? How might the metadata mischaracterize the text records?**
-</center>
+
+---
+
 \
+
 
 Finally, we'll save our data with the new doc_id column.
 
@@ -147,9 +153,13 @@ saveRDS(bills_data, "sample_bills_docid.rds")
 ```
 
 \
-<center>
+
+---
+
 **QUESTION 2: Create a dataframe using the sample of legislative bills in the 'bills' folder. Upload and attach the metadata in that folder. Save as a csv file.**
-</center>
+
+---
+
 \
 
 
