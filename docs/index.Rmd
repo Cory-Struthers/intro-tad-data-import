@@ -65,7 +65,7 @@ bills_data = readRDS("sample_bills.rds") %>%
 
 ```
 
-The `readtext` package is designed to (you guessed it!) *_read text_*. `readtext` can handle character (txt) data in tab- or comma-seperated formats, as well as pdfs and word documents.
+The `readtext` package is designed to (you guessed it!) _read text_. `readtext` can handle character (txt) data in tab- or comma-seperated formats, as well as pdfs and word documents.
  
 ```{r, message = FALSE}
 
@@ -117,11 +117,11 @@ The transcript text may not have all variables we need to conduct analysis. We c
 
 # Load metadata
 transcript_metadata = read_xlsx("transcripts/Committee_testimony_metadata.xlsx")
-View(transcript_metadata)
+head(transcript_metadata,10)
 
 # Merge
 transcripts_all = merge(transcripts_all, transcript_metadata, by=c("state", "date"))
-View(transcripts_all)
+head(transcripts_all,10)
 
 ```
 
