@@ -1751,7 +1751,7 @@ head(transcript_metadata,10)</code></pre>
 {"columns":[{"label":["state"],"name":[1],"type":["chr"],"align":["left"]},{"label":["committee"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date"],"name":[3],"type":["chr"],"align":["left"]},{"label":["majority"],"name":[4],"type":["chr"],"align":["left"]},{"label":["chamber"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"Arizona","2":"Senate Natural Resources & Energy Committee","3":"1.29.2020","4":"Republican","5":"Senate"},{"1":"Texas","2":"House State Affairs Committee","3":"4.13.2021","4":"Republican","5":"House"},{"1":"Wyoming","2":"Minerals Committee","3":"3.29.2021","4":"Republican","5":"Senate"},{"1":"Ohio","2":"House Energy and Natural Resources Committee","3":"4.21.2021","4":"Republican","5":"House"},{"1":"Pennsylvania","2":"Senate Local Government Committee and Environmental Resources and Energy Committee","3":"5.10.21","4":"Republican","5":"Senate"},{"1":"Colorado","2":"Energy and Environment Committee","3":"3.3.2021","4":"Democrat","5":"House"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<pre class="r"><code># Merge
+<pre class="r"><code># Merge (or use left_join)
 transcripts_all = merge(transcripts_all, transcript_metadata, by=c(&quot;state&quot;, &quot;date&quot;))
 head(transcripts_all,10)</code></pre>
 <div data-pagedtable="false">
@@ -1781,7 +1781,7 @@ saveRDS(bills_data, &quot;sample_bills_docid.rds&quot;)</code></pre>
 </p>
 <hr />
 <p><strong>QUESTION 2: Create a dataframe using the sample of
-legislative bills in the ‘bills’ folder. Upload and attach the metadata
+legislative bills in the “bills” folder. Upload and attach the metadata
 in that folder. Save as a csv file.</strong></p>
 <hr />
 <p><br />

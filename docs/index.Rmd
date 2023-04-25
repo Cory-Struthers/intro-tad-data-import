@@ -119,7 +119,7 @@ The transcript text may not have all variables we need to conduct analysis. We c
 transcript_metadata = read_xlsx("transcripts/Committee_testimony_metadata.xlsx")
 head(transcript_metadata,10)
 
-# Merge
+# Merge (or use left_join)
 transcripts_all = merge(transcripts_all, transcript_metadata, by=c("state", "date"))
 head(transcripts_all,10)
 
@@ -156,7 +156,7 @@ saveRDS(bills_data, "sample_bills_docid.rds")
 
 ---
 
-**QUESTION 2: Create a dataframe using the sample of legislative bills in the 'bills' folder. Upload and attach the metadata in that folder. Save as a csv file.**
+**QUESTION 2: Create a dataframe using the sample of legislative bills in the "bills" folder. Upload and attach the metadata in that folder. Save as a csv file.**
 
 ---
 
