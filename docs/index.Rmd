@@ -82,7 +82,7 @@ transcript_word$text
 
 More often, we need to read in multiple (sometimes hundreds of) documents from a single folder. One folder in our data folder includes several documents of committee testimony across six states. Documents don't have built-in metadata. We either have to use file names to extract metadata or gather additional data to attach to documents as attributes. Note, this is why creating consistent, informative file names for documents is useful! 
 
-`readtext` allows you to load multiple documents at the same time, each creating a different row in a data frame. As shown below, the package provides options to convert text in the file names to document variables. In the example, we use the state and dates in the names -- separated by a space -- to create two document variables (state, date).
+`readtext` allows you to load multiple documents at the same time, each creating a different row in a dataframe. As shown below, the package provides options to convert text in the file names to document variables. In the example, we use the state and dates in the names -- separated by a space -- to create two document variables (state, date).
 
 If you're having trouble with importing certain characters, or are being thrown an error involving Unicode, you may need to specify which encoding you want R to use in the `readtext` function, `encoding` option. Some encodings either do not import correctly or not available in R, but the problem is usually resolvable. Windows users often need to specify the encoding to prevent errors.
 
@@ -130,7 +130,7 @@ head(transcripts_all,10)
 
 ---
 
-**Question 1. Review some of the text in the "transcripts_all" data frame. What do you notice about the text records? How might the metadata mischaracterize the text records?**
+**Question 1. Review some of the text in the "transcripts_all" dataframe. What do you notice about the text records? How might the metadata mischaracterize the text records?**
 
 ---
 
@@ -156,7 +156,7 @@ saveRDS(bills_data, "bills_sponsors_sample_2019-2020_docid.rds")
 
 ---
 
-**Question 2 (BREAKOUT). Create a data frame where each document (including text) is a row using the sample of legislative bills in the "bills" folder. Upload and attach the metadata included in that folder("bills_leg_attributes.xls"). Save your data frame csv file.**
+**Question 2 (BREAKOUT). Create a dataframe where each document (including text) is a row using the sample of legislative bills in the "bills" folder. Upload and attach the metadata included in that folder ("bills_leg_attributes.csv"). Save your dataframe as an RDS file.**
 
 ---
 
